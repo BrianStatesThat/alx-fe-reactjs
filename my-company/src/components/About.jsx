@@ -1,3 +1,4 @@
+import React from 'react';
    function About() {
      return (
        <div style={{ padding: '20px' }}>
