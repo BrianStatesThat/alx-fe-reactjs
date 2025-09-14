@@ -2,6 +2,7 @@ import { create } from 'zustand';
 
 export const useRecipeStore = create((set, get) => ({
   recipes: [],
+  favorites: [],
   searchTerm: '',
   setSearchTerm: (term) => {
     set({ searchTerm: term });
@@ -36,4 +37,23 @@ export const useRecipeStore = create((set, get) => ({
       ),
     })),
   setRecipes: (recipes) => set({ recipes, filteredRecipes: recipes }),
+  addFavorite: (recipeId) =>
+    set((state) => ({
+      favorites: state.favorites.includes(recipeId)
+        ? state.favorites
+        : [...state.favorites, recipeId],
+    })),
+  removeFavorite: (recipeId) =>
+    set((state) => ({
+      favorites: state.favorites.filter((id) => id !== recipeId),
+    })),
+  recommendations: [],
+  generateRecommendations: () => {
+    // Simple mock: recommend recipes not in favorites, randomly
+    const { recipes, favorites } = get();
+    const recommended = recipes.filter(
+      (recipe) => !favorites.includes(recipe.id) && Math.random() > 0.5
+    );
+    set({ recommendations: recommended });
+  },
 }));
