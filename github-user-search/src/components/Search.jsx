@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import { advancedUserSearch } from '../services/githubService';
+import { fetchUserData } from '../services/githubService';
 
 function Search() {
   const [username, setUsername] = useState('');
@@ -74,7 +75,7 @@ function Search() {
       <div className="mt-6">
         {results.map(user => (
           <div key={user.id} className="flex items-center mb-4 p-3 border rounded">
-            <img src={user.avatar_url} alt={user.login} className="w-16 h-16 rounded-full mr-4" />
+            <img src={user.avatar_url} alt={user.login} className="w-16 h-16 rounded-full object-cover mr-4" />
             <div>
               <a href={user.html_url} target="_blank" rel="noopener noreferrer" className="text-lg font-bold text-blue-700">
                 {user.login}
