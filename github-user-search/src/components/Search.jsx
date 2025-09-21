@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import { fetchUserData } from '../services/githubService';
 
-function UserSearch() {
+function Search() {
   const [input, setInput] = useState('');
   const [user, setUser] = useState(null);
   const [loading, setLoading] = useState(false);
@@ -50,4 +50,4 @@ function UserSearch() {
   );
 }
 
-export default UserSearch;
+export default Search;
