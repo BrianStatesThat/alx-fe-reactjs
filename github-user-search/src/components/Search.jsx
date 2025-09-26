@@ -58,7 +58,7 @@ function Search() {
   };
 
   return (
-    <div className="max-w-xl mx-auto mt-8 p-6 bg-white rounded shadow">
+    <div className="max-w-xl mx-auto mt-8 p-6 bg-black rounded shadow">
       <form className="space-y-4" onSubmit={handleAdvancedSearch}>
         <input
           className="w-full px-3 py-2 border rounded"
