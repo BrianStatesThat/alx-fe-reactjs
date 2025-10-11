@@ -1,10 +1,8 @@
 import { Navigate } from 'react-router-dom';
-
-const isAuthenticated = () => {
-  // Simulate auth check
-  return localStorage.getItem('auth') === 'true';
-};
+import useAuth from '../hooks/useAuth';
 
 export default function ProtectedRoute({ children }) {
-  return isAuthenticated() ? children : <Navigate to="/" replace />;
+  const { isAuthenticated } = useAuth();
+
+  return isAuthenticated ? children : <Navigate to="/" replace />;
 }
