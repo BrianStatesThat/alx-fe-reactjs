@@ -9,15 +9,17 @@ export default function RegistrationForm() {
   const handleSubmit = (e) => {
     e.preventDefault();
     const newErrors = {};
-    if (!username.trim()) newErrors.username = 'Username is required';
-    if (!email.trim()) newErrors.email = 'Email is required';
-    if (!password.trim()) newErrors.password = 'Password is required';
+
+    // Explicit validation checks
+    if (!username) newErrors.username = 'Username is required';
+    if (!email) newErrors.email = 'Email is required';
+    if (!password) newErrors.password = 'Password is required';
 
     if (Object.keys(newErrors).length > 0) {
       setErrors(newErrors);
     } else {
       console.log('Form submitted:', { username, email, password });
-      // Simulate API call here
+      // Simulating API call here
     }
   };
 
@@ -28,7 +30,7 @@ export default function RegistrationForm() {
         <input
           type="text"
           name="username"
-          value={username} // ✅ Required for controlled input
+          value={username}
           onChange={(e) => setUsername(e.target.value)}
         />
         {errors.username && <span style={{ color: 'red' }}>{errors.username}</span>}
@@ -39,7 +41,7 @@ export default function RegistrationForm() {
         <input
           type="email"
           name="email"
-          value={email} // ✅ Required for controlled input
+          value={email}
           onChange={(e) => setEmail(e.target.value)}
         />
         {errors.email && <span style={{ color: 'red' }}>{errors.email}</span>}
@@ -50,7 +52,7 @@ export default function RegistrationForm() {
         <input
           type="password"
           name="password"
-          value={password} // ✅ Required for controlled input
+          value={password}
           onChange={(e) => setPassword(e.target.value)}
         />
         {errors.password && <span style={{ color: 'red' }}>{errors.password}</span>}
