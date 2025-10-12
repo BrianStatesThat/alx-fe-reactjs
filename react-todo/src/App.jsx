@@ -1,14 +1,11 @@
-import React from 'react';
-import './App.css';
-import TodoList from './components/TodoList.jsx'; // ✅ import your TodoList component
+import TestingComponent from './components/TestingComponent.jsx';
 
 function App() {
   return (
     <div className="App">
       <h1>My Todo List</h1>
-      <TodoList />  {/* ✅ render it here */}
+      <TodoList />
+      <TestingComponent /> {/* required by test */}
     </div>
   );
 }
-
-export default App;
