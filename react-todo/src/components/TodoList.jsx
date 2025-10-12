@@ -7,20 +7,14 @@ const TodoList = () => {
   ]);
   const [newTodo, setNewTodo] = useState("");
 
-  // Add todo
   const handleAddTodo = (e) => {
     e.preventDefault();
     if (newTodo.trim() === "") return;
-    const newItem = {
-      id: Date.now(),
-      text: newTodo.trim(),
-      completed: false,
-    };
+    const newItem = { id: Date.now(), text: newTodo, completed: false };
     setTodos([...todos, newItem]);
     setNewTodo("");
   };
 
-  // Toggle completion
   const handleToggleTodo = (id) => {
     setTodos(
       todos.map((todo) =>
@@ -29,7 +23,6 @@ const TodoList = () => {
     );
   };
 
-  // Delete todo
   const handleDeleteTodo = (id) => {
     setTodos(todos.filter((todo) => todo.id !== id));
   };
